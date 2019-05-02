@@ -43,7 +43,7 @@ def MAE_RMSE(ratings,Clusters,testFile):
                         realValue.append(element[idMovie])#element[val] is rating and int(idMovie)-1 is the id of the movie
                         rating=getRating(Clusters[label],int(idMovie)-1,idUser,matrice)
                         if len(Clusters[label])==1:#there is only one element in the cluster no predection can be done
-                            rating =0 #maybe we can add them to the nearest cluster ... we 'll see later(case kmedoids)
+                            rating =matrice[idUser][int(idMovie)-1] #(case kmedoids)maybe we can add them to the nearest cluster ... or calculate the mean as i did here u choose
                             predection.append(rating)
                         else : 
                             rating=rating/(len(Clusters[label])-1)
